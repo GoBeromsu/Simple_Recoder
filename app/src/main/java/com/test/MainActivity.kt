@@ -18,10 +18,18 @@ class MainActivity : AppCompatActivity() {
     private var mediaRecorder: MediaRecorder? = null
     private var state: Boolean = false
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val permissions = arrayOf(
+            android.Manifest.permission.RECORD_AUDIO,
+            android.Manifest.permission.WRITE_EXTERNAL_STORAGE,
+            android.Manifest.permission.READ_EXTERNAL_STORAGE
+        )
+
+        // 녹음 시작
         button_start.setOnClickListener {
             if (ContextCompat.checkSelfPermission(
                     this,
@@ -32,20 +40,20 @@ class MainActivity : AppCompatActivity() {
                 ) != PackageManager.PERMISSION_GRANTED
             ) {
                 //Permission is not granted
-                val permissions = arrayOf(
-                    android.Manifest.permission.RECORD_AUDIO,
-                    android.Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                    android.Manifest.permission.READ_EXTERNAL_STORAGE
-                )
+
                 ActivityCompat.requestPermissions(this, permissions, 0)
             } else {
                 startRecording()
             }
         }
+        // 녹음 중지
         button_stop.setOnClickListener {
             stopRecording()
         }
+        // 저장된 파일 불러오기
+        button_list.setOnClickListener {
 
+        }
 
     }
 
@@ -83,6 +91,5 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this, "레코딩 상태가 아닙니다.", Toast.LENGTH_SHORT).show()
         }
     }
-
 
 }
