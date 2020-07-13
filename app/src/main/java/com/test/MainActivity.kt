@@ -1,5 +1,6 @@
 package com.test
 
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.media.MediaRecorder
 import androidx.appcompat.app.AppCompatActivity
@@ -9,6 +10,7 @@ import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import kotlinx.android.synthetic.main.activity_main.*
+
 import java.io.IOException
 import java.sql.Date
 
@@ -53,7 +55,8 @@ class MainActivity : AppCompatActivity() {
         }
         // playlistActivity로 넘어가는 버튼
         button_list.setOnClickListener {
-
+            var intent = Intent(this, PlaylistActivity::class.java)
+            startActivity(intent)
         }
 
     }
