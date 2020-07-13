@@ -30,6 +30,7 @@ class MainActivity : AppCompatActivity() {
         )
 
         // 녹음 시작
+        // 퍼미션 추가(외부 저장소 저장 해야됨
         button_start.setOnClickListener {
             if (ContextCompat.checkSelfPermission(
                     this,
@@ -50,7 +51,7 @@ class MainActivity : AppCompatActivity() {
         button_stop.setOnClickListener {
             stopRecording()
         }
-        // 저장된 파일 불러오기
+        // playlistActivity로 넘어가는 버튼
         button_list.setOnClickListener {
 
         }
