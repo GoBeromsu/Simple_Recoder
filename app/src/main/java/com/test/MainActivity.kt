@@ -65,7 +65,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun startRecording() {
         //config and create MediaRecorder Object
-        val timeFormat = SimpleDateFormat("yyyyMMdd")
+        val timeFormat = SimpleDateFormat("yyyyMMddHHmm")
         val time = timeFormat.format(java.util.Date())
         val fileName: String = time + ".mp3"
 
