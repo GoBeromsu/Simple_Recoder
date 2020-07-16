@@ -23,19 +23,21 @@ class PlaylistActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.playlist)
-//        var fileName: String? = null
-//        var extName: String? = null
-//        var mp3List = mutableListOf<String>()
-//
-//
-//        for (file in listFiles) {
-//            fileName = file.getName()
-//            extName = fileName.substring(-3)
-//            if (extName == "mp3") {
-//                mp3List.add(fileName)
-//            }
-//        }
-//
+
+        var fileName: String? = null
+        var extName: String? = null
+        var mp3List = mutableListOf<String>()
+
+
+        for (file in listFiles) {
+            fileName = file.getName()
+            extName = fileName.substring(fileName.length-3)
+            if (extName == "mp3") {
+                println(fileName)
+                mp3List.add(fileName)
+            }
+        }
+
 
 
         button_back.setOnClickListener {

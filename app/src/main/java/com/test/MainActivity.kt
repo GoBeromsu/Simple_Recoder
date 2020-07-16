@@ -13,6 +13,8 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 import java.io.IOException
 import java.sql.Date
+import java.text.SimpleDateFormat
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -63,7 +65,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun startRecording() {
         //config and create MediaRecorder Object
-        val fileName: String = java.util.Date().getTime().toString() + ".mp3"
+        val timeFormat = SimpleDateFormat("yyyyMMdd")
+        val time = timeFormat.format(java.util.Date())
+        val fileName: String = time + ".mp3"
+
         output =
             Environment.getExternalStorageDirectory().absolutePath + "/Download/" + fileName //내장메모리 밑에 위치
         mediaRecorder = MediaRecorder()
