@@ -42,8 +42,12 @@ class PlaylistActivity : AppCompatActivity() {
         view_mp3.onItemClickListener =
             AdapterView.OnItemClickListener { parent, view, position, id ->
                 val seletedVoice = parent.getItemAtPosition(position) as String
-                Toast.makeText(this, "${Environment.getExternalStorageDirectory()}/Download/"+seletedVoice, Toast.LENGTH_SHORT).show()
-                audioPlay.setDataSource("${Environment.getExternalStorageDirectory()}/Download/"+seletedVoice)
+                Toast.makeText(
+                    this,
+                    "${Environment.getExternalStorageDirectory()}/Download/" + seletedVoice,
+                    Toast.LENGTH_SHORT
+                ).show()
+                audioPlay.setDataSource("${Environment.getExternalStorageDirectory()}/Download/" + seletedVoice)
                 audioPlay.prepare()
                 audioPlay.start()
 
@@ -55,8 +59,8 @@ class PlaylistActivity : AppCompatActivity() {
             var intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
-
     }
+
 
 }
 
